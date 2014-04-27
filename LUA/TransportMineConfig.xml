@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+      <BaseConfigs rankcount="5" refreshPrice="30" begainTime="1220" endTime="1310" needTime="10" addSpecialRate="0.618" viplevel="4" initCount="6" initRate="0.100" maxRobCount="5" maxBeRobedCount="3" maxGuardTimes="10" reward1="11001:1001" reward2="61001:1501001" reward1DropRate="0.100" reward2DropRate="0.100" reward1RobRate="0.500" reward2RobRate="1" specialDropRate="0.050" publicBroardCount="10" selfBroardCount="10" levelLimit="10"/>
+      <MineConfigs>
+      <MineConfig quality="1" reward1Count="200" reward2Count="60" upRate="1" getRate="0"/>
+      <MineConfig quality="2" reward1Count="100" reward2Count="35" upRate="0.280" getRate="0"/>
+      <MineConfig quality="3" reward1Count="60" reward2Count="20" upRate="0.350" getRate="30"/>
+      <MineConfig quality="4" reward1Count="20" reward2Count="10" upRate="0.620" getRate="70"/>
+      </MineConfigs>
+      <SpecialRewards>
+      <SpecialReward id="1" reward="61001:5004004:1" rate="7"/>
+      <SpecialReward id="2" reward="61001:5005003:1" rate="7"/>
+      <SpecialReward id="3" reward="61001:5001031:1" rate="0"/>
+      <SpecialReward id="4" reward="61001:5001032:1" rate="0"/>
+      <SpecialReward id="5" reward="61001:5001033:1" rate="0"/>
+      <SpecialReward id="6" reward="61001:5003001:5" rate="15"/>
+      <SpecialReward id="7" reward="61001:5003001:3" rate="15"/>
+      <SpecialReward id="8" reward="41001:10:1" rate="12"/>
+      <SpecialReward id="9" reward="41002:12:1" rate="12"/>
+      <SpecialReward id="10" reward="61001:1101007:1" rate="41"/>
+      </SpecialRewards>
+</root>
