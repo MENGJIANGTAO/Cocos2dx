@@ -355,9 +355,31 @@ bool HelloWorld::init()
 	//CCActionInterval* rep2 = CCRepeat::create((CCFiniteTimeAction*)(seq->copy()->autorelease()), 10);
 	//pSprite->runAction(rep1);
 	//pSprite->runAction(rep2);
+	
+	//------------------------------------------------------------------
+	//
+	// ActionRotateJerk
+	//
+	//------------------------------------------------------------------
+	//CCFiniteTimeAction * seq = CCSequence::create(CCRotateTo::create(0.5f, -20), CCRotateTo::create(0.5f, 20), NULL);
+	//CCActionInterval* rep1 = CCRepeat::create(seq, 10);
+	//CCAction* rep2 = CCRepeatForever::create((CCActionInterval*)(seq->copy()->autorelease()));
 
+	//pSprite->runAction(rep1);
+	//pSprite->runAction(rep2);
 
-	this->addChild(pSprite, 0);
+	//------------------------------------------------------------------
+	//
+	// ActionRotateJerk
+	//
+	//------------------------------------------------------------------
+	//CCActionInterval* jump = CCJumpBy::create(2, ccp(300, 0), 100, 10);
+	//CCFiniteTimeAction* action = CCSequence::create(jump, jump->reverse(), NULL);
+	//pSprite->runAction(action);
+
+	//this->addChild(pSprite, 0);
+	
+
     return true;
 }
 
