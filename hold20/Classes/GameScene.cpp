@@ -1,6 +1,7 @@
 #include "GameScene.h"
 #include "MenuScene.h"
 #include "Tools.h"
+#include "global.h"
 USING_NS_CC;
 
 Scene *GameScene::createScene() {
@@ -147,7 +148,7 @@ void GameScene::menuReturnCallBack(cocos2d::Ref* ref) {
 }
 
 void GameScene::createBullet(float dt) {
-    if (bullets.size() > 50) {
+    if (bullets.size() > g_bulletNumber) {
         return;
     }
 
