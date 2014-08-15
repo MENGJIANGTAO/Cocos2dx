@@ -30,6 +30,7 @@ public:
         void checkBullet(float dt);
         void flying(float dt);
         void explosionEndDid();
+        void saveTime(long dt);
         Sprite *joystick;
         Point center;
         float radius;

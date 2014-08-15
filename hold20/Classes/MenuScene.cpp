@@ -1,5 +1,6 @@
 #include "MenuScene.h"
 #include "GameScene.h"
+#include "Setting.h"
 USING_NS_CC;
 
 Scene* MenuScene::createScene()
@@ -59,12 +60,13 @@ bool MenuScene::init()
 void MenuScene::menuNewCallback(cocos2d::Ref* pSender)
 {
     Scene *gameScene = GameScene::createScene();
-    Director::sharedDirector()->replaceScene(CCTransitionCrossFade::create(1.5f,gameScene));
+    Director::sharedDirector()->replaceScene(CCTransitionFadeUp::create(1.5f,gameScene));
 }
 
 void MenuScene::menuOptionCallback(cocos2d::Ref* pSender)
 {
-    
+    Scene *optionScene = Setting::createScene();
+    Director::sharedDirector()->replaceScene(CCTransitionFadeUp::create(1.5f,optionScene));
 }
 
 void MenuScene::menuQuitCallback(cocos2d::Ref* pSender)

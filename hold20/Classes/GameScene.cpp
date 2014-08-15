@@ -2,6 +2,10 @@
 #include "MenuScene.h"
 #include "Tools.h"
 #include "global.h"
+#include "GameOver.h"
+#define MUSCI_BG "adventure.mp3"
+
+using namespace CocosDenshion;
 USING_NS_CC;
 
 Scene *GameScene::createScene() {
@@ -51,6 +55,11 @@ bool GameScene::init() {
     this->schedule(schedule_selector(GameScene::flying));
     this->schedule(schedule_selector(GameScene::createBullet));
     this->schedule(schedule_selector(GameScene::checkBullet));
+    this->schedule(SEL_SCHEDULE(&GameScene::saveTime),1);
+    
+    SimpleAudioEngine::getInstance()->preloadBackgroundMusic(MUSCI_BG);
+    SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0.5f);
+    SimpleAudioEngine::getInstance()->playBackgroundMusic(MUSCI_BG, true);
     return true;
 }
 
@@ -238,6 +247,13 @@ void GameScene::checkBullet(float dt) {
             explosion->runAction(seq);
 
             //sound
+            if(g_playSound)
+            {
+//                CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("explosion.wav");
+                log("play sound");
+//                CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("explosion.wav");
+                SimpleAudioEngine::getInstance()->playBackgroundMusic("explosion.WAV", false);
+            }
             break;
         } else if (!screen.containsPoint(position)) {
             this->removeChild(bullet, true);
@@ -262,6 +278,14 @@ void GameScene::flying(float dt) {
     }
 }
 
+void GameScene::saveTime(long dt)
+{
+    g_gameTime+=dt;
+}
+
 void GameScene::explosionEndDid() {
     log("Game Over");
+    explosion->setVisible(false);
+    Scene *scene  = GameOver::createScene();
+    Director::sharedDirector()->replaceScene(CCTransitionFadeUp::create(1.5f,scene));
 }

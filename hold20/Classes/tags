@@ -1,0 +1,66 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AppDelegate	AppDelegate.cpp	/^AppDelegate::AppDelegate() {$/;"	f	class:AppDelegate
+AppDelegate	AppDelegate.h	/^class  AppDelegate : private cocos2d::Application$/;"	c
+GAMEOVER_H	GameOver.h	9;"	d
+GAMESCENE_H	GameScene.h	9;"	d
+GLOBAL_H	global.h	2;"	d
+GameOver	GameOver.h	/^class GameOver : public cocos2d::Layer{$/;"	c
+GameScene	GameScene.h	/^class GameScene :  public cocos2d::Layer$/;"	c
+MENUSCENE_H	MenuScene.h	9;"	d
+MenuScene	MenuScene.h	/^class MenuScene : public cocos2d::Layer$/;"	c
+SETTING_H	Setting.h	9;"	d
+Setting	Setting.h	/^class Setting : public cocos2d::Layer {$/;"	c
+TOOLS_H	Tools.h	9;"	d
+_APP_DELEGATE_H_	AppDelegate.h	2;"	d
+applicationDidEnterBackground	AppDelegate.cpp	/^void AppDelegate::applicationDidEnterBackground() {$/;"	f	class:AppDelegate
+applicationDidFinishLaunching	AppDelegate.cpp	/^bool AppDelegate::applicationDidFinishLaunching() {$/;"	f	class:AppDelegate
+applicationWillEnterForeground	AppDelegate.cpp	/^void AppDelegate::applicationWillEnterForeground() {$/;"	f	class:AppDelegate
+backCallback	Setting.cpp	/^void Setting::backCallback(cocos2d::Ref* pSender) {$/;"	f	class:Setting
+bulletNumCallback	Setting.cpp	/^void Setting::bulletNumCallback(cocos2d::Ref* pSender) {$/;"	f	class:Setting
+bullets	GameScene.h	/^        std::vector<Sprite*> bullets;$/;"	m	class:GameScene
+center	GameScene.h	/^        Point center;$/;"	m	class:GameScene
+checkBullet	GameScene.cpp	/^void GameScene::checkBullet(float dt) {$/;"	f	class:GameScene
+convertAppraise	GameOver.cpp	/^std::string GameOver::convertAppraise()$/;"	f	class:GameOver
+createBullet	GameScene.cpp	/^void GameScene::createBullet(float dt) {$/;"	f	class:GameScene
+createScene	GameOver.cpp	/^Scene* GameOver::createScene()$/;"	f	class:GameOver
+createScene	GameScene.cpp	/^Scene *GameScene::createScene() {$/;"	f	class:GameScene
+createScene	MenuScene.cpp	/^Scene* MenuScene::createScene()$/;"	f	class:MenuScene
+createScene	Setting.cpp	/^Scene* Setting::createScene() {$/;"	f	class:Setting
+explosion	GameScene.h	/^        Sprite *explosion;$/;"	m	class:GameScene
+explosionEndDid	GameScene.cpp	/^void GameScene::explosionEndDid() {$/;"	f	class:GameScene
+flying	GameScene.cpp	/^void GameScene::flying(float dt) {$/;"	f	class:GameScene
+g_bulletNumber	global.cpp	/^int g_bulletNumber = 50;$/;"	v
+g_gameTime	global.cpp	/^long g_gameTime = 0;$/;"	v
+g_playSound	global.cpp	/^bool g_playSound = false;/;"	v
+heronsformula	Tools.cpp	/^float heronsformula(float x1,float y1,float x2,float y2,float x3,float y3)$/;"	f
+init	GameOver.cpp	/^bool GameOver::init()$/;"	f	class:GameOver
+init	GameScene.cpp	/^bool GameScene::init() {$/;"	f	class:GameScene
+init	MenuScene.cpp	/^bool MenuScene::init()$/;"	f	class:MenuScene
+init	Setting.cpp	/^bool Setting::init() {$/;"	f	class:Setting
+isFlying	GameScene.h	/^        bool isFlying;$/;"	m	class:GameScene
+joystick	GameScene.h	/^        Sprite *joystick;$/;"	m	class:GameScene
+menuNewCallback	MenuScene.cpp	/^void MenuScene::menuNewCallback(cocos2d::Ref* pSender)$/;"	f	class:MenuScene
+menuOptionCallback	MenuScene.cpp	/^void MenuScene::menuOptionCallback(cocos2d::Ref* pSender)$/;"	f	class:MenuScene
+menuQuitCallback	MenuScene.cpp	/^void MenuScene::menuQuitCallback(cocos2d::Ref* pSender)$/;"	f	class:MenuScene
+menuReturnCallBack	GameScene.cpp	/^void GameScene::menuReturnCallBack(cocos2d::Ref* ref) {$/;"	f	class:GameScene
+onEnter	GameOver.cpp	/^void GameOver::onEnter()$/;"	f	class:GameOver
+onEnter	GameScene.cpp	/^void GameScene::onEnter() {$/;"	f	class:GameScene
+onExit	GameOver.cpp	/^void GameOver::onExit()$/;"	f	class:GameOver
+onExit	GameScene.cpp	/^void GameScene::onExit() {$/;"	f	class:GameScene
+onTouchBegan	GameOver.cpp	/^bool GameOver::onTouchBegan(Touch *touch,Event *event)$/;"	f	class:GameOver
+onTouchBegan	GameScene.cpp	/^bool GameScene::onTouchBegan(Touch* touch, Event* event) {$/;"	f	class:GameScene
+onTouchEnded	GameScene.cpp	/^void GameScene::onTouchEnded(Touch* touch, Event* event) {$/;"	f	class:GameScene
+onTouchMoved	GameScene.cpp	/^void GameScene::onTouchMoved(Touch* touch, Event* event) {$/;"	f	class:GameScene
+plane	GameScene.h	/^        Sprite *plane;$/;"	m	class:GameScene
+radius	GameScene.h	/^        float radius;$/;"	m	class:GameScene
+saveTime	GameScene.cpp	/^void GameScene::saveTime(long dt)$/;"	f	class:GameScene
+soundCallback	Setting.cpp	/^void Setting::soundCallback(cocos2d::Ref* pSender) {$/;"	f	class:Setting
+speedX	GameScene.h	/^        float speedX;$/;"	m	class:GameScene
+speedY	GameScene.h	/^        float speedY;$/;"	m	class:GameScene
+triangleContainPoint	Tools.cpp	/^bool triangleContainPoint(float x1,float y1,float x2,float y2,float x3,float y3,float px,float py)$/;"	f
+~AppDelegate	AppDelegate.cpp	/^AppDelegate::~AppDelegate() $/;"	f	class:AppDelegate

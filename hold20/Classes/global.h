@@ -1,3 +1,10 @@
+#ifndef GLOBAL_H
+#define	GLOBAL_H
 
-bool g_playSound = false;
-int g_bulletNumber = 50;
+#include "cocos2d.h"
+
+extern long g_gameTime;
+extern bool g_playSound;
+extern int g_bulletNumber;
+
+#endif
