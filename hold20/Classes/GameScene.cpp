@@ -187,6 +187,7 @@ void GameScene::onAcceleration(Acceleration* acc, Event* event) {
 }
 
 void GameScene::menuReturnCallBack(cocos2d::Ref* ref) {
+    SimpleAudioEngine::getInstance()->stopBackgroundMusic(true);
     Scene *scene = MenuScene::createScene();
     Director::sharedDirector()->replaceScene(CCTransitionFlipX::create(1.2f, scene));
 }
@@ -316,6 +317,7 @@ void GameScene::flying(float dt) {
 void GameScene::saveTime(long dt)
 {
     g_gameTime+=dt;
+    g_score++;
 }
 
 void GameScene::explosionEndDid() {

@@ -20,8 +20,9 @@ public:
     // a selector callback
     void menuNewCallback(cocos2d::Ref* pSender);
     void menuOptionCallback(cocos2d::Ref* pSender);
+    void menuScoreCallback(cocos2d::Ref* pSender);
     void menuQuitCallback(cocos2d::Ref* pSender);
-    
+    Size size;
     CREATE_FUNC(MenuScene);
 };
 

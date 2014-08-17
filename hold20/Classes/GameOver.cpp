@@ -26,27 +26,27 @@ bool GameOver::init()
     pLabel->setPosition(ccp(size.width/2,size.height*0.9));
     addChild(pLabel,1);
     
-    std::string keepTime="Time:";
+//    std::string keepTime="Time:";
     std::string second = "Second:";
     
     char szBuf[128];
     memset(szBuf,0,sizeof(szBuf));
-    sprintf(szBuf,"%d",(int)g_gameTime);
-    std::string titleStr3 = keepTime + szBuf + second;
+    sprintf(szBuf,"%d",(int)g_score);
+    std::string titleStr3 = second + szBuf;
     
     LabelTTF *pLabel3 = LabelTTF::create(titleStr3.c_str(),"Thonburi",30);
     pLabel3->setPosition(ccp(size.width/2,size.height*0.7f));
     addChild(pLabel3,1);
     
-    std::string yourAppraise="Appraise";
-    LabelTTF *pLabel4 = LabelTTF::create(yourAppraise.c_str(),"Thonburi",30);
-    pLabel4->setPosition(ccp(size.width/2,size.height*0.5f));
-    addChild(pLabel4,1);
+//    std::string yourAppraise="Appraise";
+//    LabelTTF *pLabel4 = LabelTTF::create(yourAppraise.c_str(),"Thonburi",30);
+//    pLabel4->setPosition(ccp(size.width/2,size.height*0.5f));
+//    addChild(pLabel4,1);
     
-    std::string appraise=convertAppraise();
-    LabelTTF *pLabel5 = LabelTTF::create(appraise.c_str(),"Thonburi",30);
-    pLabel5->setPosition(ccp(size.width/2,size.height*0.3f));
-    addChild(pLabel5,1);
+//    std::string appraise=convertAppraise();
+//    LabelTTF *pLabel5 = LabelTTF::create(appraise.c_str(),"Thonburi",30);
+//    pLabel5->setPosition(ccp(size.width/2,size.height*0.3f));
+//    addChild(pLabel5,1);
     
     std::string titleStr2 = "Touch to continue.";
     LabelTTF *pLabel2 = LabelTTF::create(titleStr2.c_str(),"Thonburi",30);
@@ -76,6 +76,8 @@ std::string GameOver::convertAppraise()
 bool GameOver::onTouchBegan(Touch *touch,Event *event)
 {
     SimpleAudioEngine::getInstance()->stopBackgroundMusic(true);
+    UserDefault * temp = UserDefault::getInstance();
+    temp->setIntegerForKey("score", g_score);
     Scene *scene = MenuScene::createScene();
     Director::sharedDirector()->replaceScene(CCTransitionFadeUp::create(1.5f,scene));
 }
