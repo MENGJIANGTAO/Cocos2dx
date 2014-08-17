@@ -18,6 +18,7 @@ class GameOver : public cocos2d::Layer{
     std::string convertAppraise();
     virtual void onEnter();
     virtual void onExit();
+    
     CREATE_FUNC(GameOver);
 };
 #endif	/* GAMEOVER_H */

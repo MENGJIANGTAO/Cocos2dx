@@ -2,6 +2,7 @@
 #include "MenuScene.h"
 #include "global.h"
 #include "Tools.h"
+#include "ODSocket.h"
 using namespace CocosDenshion;
 USING_NS_CC;
 
@@ -78,6 +79,18 @@ bool GameOver::onTouchBegan(Touch *touch,Event *event)
     SimpleAudioEngine::getInstance()->stopBackgroundMusic(true);
     UserDefault * temp = UserDefault::getInstance();
     temp->setIntegerForKey("score", g_score);
+    ODSocket cSocket;
+    cSocket.Init();
+    cSocket.Create(AF_INET,SOCK_STREAM,0);
+    cSocket.Connect("192.168.1.104",9777);
+    char recvBuf[1024] = "\0";
+    std::string testmsg = "test";
+    cSocket.Send(testmsg.c_str(),strlen(testmsg.c_str()+1),1);
+    cSocket.Recv(recvBuf,1024,0);
+    std::string rec_msg = std::string(recvBuf);
+    log("recMsg:%s",rec_msg.c_str());
+    cSocket.Close();
+    cSocket.Clean();
     Scene *scene = MenuScene::createScene();
     Director::sharedDirector()->replaceScene(CCTransitionFadeUp::create(1.5f,scene));
 }

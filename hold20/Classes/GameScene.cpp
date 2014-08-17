@@ -68,6 +68,7 @@ bool GameScene::init() {
     SimpleAudioEngine::getInstance()->preloadBackgroundMusic(MUSCI_BG);
     SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0.5f);
     SimpleAudioEngine::getInstance()->playBackgroundMusic(MUSCI_BG, true);
+    
     return true;
 }
 
