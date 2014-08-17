@@ -3,10 +3,18 @@
 #include "Tools.h"
 #include "global.h"
 #include "GameOver.h"
+#include "VisibleRect.h"
+
 #define MUSCI_BG "adventure.mp3"
 
 using namespace CocosDenshion;
 USING_NS_CC;
+
+#define FIX_POS(_pos, _min, _max) \
+    if (_pos < _min)        \
+    _pos = _min;        \
+else if (_pos > _max)   \
+    _pos = _max;        \
 
 Scene *GameScene::createScene() {
     auto scene = Scene::create();
@@ -22,7 +30,7 @@ bool GameScene::init() {
 
     Size size = Director::sharedDirector()->getWinSize();
 
-    Sprite * joystick1 = Sprite::create("joystick1.png");
+    joystick1 = Sprite::create("joystick1.png");
     joystick1->setOpacity(191);
     joystick1->setAnchorPoint(ccp(0, 0));
     joystick1->setPosition(ccp(0, 0));
@@ -66,6 +74,11 @@ bool GameScene::init() {
 void GameScene::onEnter() {
     Layer::onEnter();
 
+    if(!g_touchControl)
+    {
+        joystick->setVisible(g_touchControl);
+        joystick1->setVisible(g_touchControl);
+    }
     // Register Touch Event
     auto listener = EventListenerTouchOneByOne::create();
     listener->setSwallowTouches(true);
@@ -75,23 +88,30 @@ void GameScene::onEnter() {
     listener->onTouchEnded = CC_CALLBACK_2(GameScene::onTouchEnded, this);
 
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+    
+    Device::setAccelerometerEnabled(true);
+    auto listener2 = EventListenerAcceleration::create(CC_CALLBACK_2(GameScene::onAcceleration, this));
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener2, this);
 }
 
 void GameScene::onExit() {
     Layer::onExit();
+    Device::setAccelerometerEnabled(false);
 }
 
 bool GameScene::onTouchBegan(Touch* touch, Event* event) {
 //    log("touch");
     Point location = touch->getLocationInView();
     Point convertedLocation = Director::sharedDirector()->convertToGL(location);
-
-    Rect rect = joystick->boundingBox();
-    if (rect.containsPoint(convertedLocation)) {
-        isFlying = true;
+    if (g_touchControl) {
+        Rect rect = joystick->boundingBox();
+        if (rect.containsPoint(convertedLocation)) {
+            isFlying = true;
+        }
     }
     return true;
 }
+
 
 void GameScene::onTouchMoved(Touch* touch, Event* event) {
 //    log("moved");
@@ -99,7 +119,7 @@ void GameScene::onTouchMoved(Touch* touch, Event* event) {
     Point convertedLocation = Director::sharedDirector()->convertToGL(location);
 
     bool inRange = pow(center.x - convertedLocation.x, 2) + pow(center.y - convertedLocation.y, 2) < pow(radius, 2);
-    if (isFlying && inRange) {
+    if (isFlying && inRange && g_touchControl) {
         CCPoint position = plane->getPosition();
         joystick->setPosition(convertedLocation);
 
@@ -149,6 +169,21 @@ void GameScene::onTouchEnded(Touch* touch, Event* event) {
     isFlying = false;
     joystick->setPosition(center);
     speedX = speedY = 0;
+}
+
+void GameScene::onAcceleration(Acceleration* acc, Event* event) {
+    if (!g_touchControl) {
+        auto ballSize = plane->getContentSize();
+
+        auto pos = plane->getPosition();
+
+        pos.x += acc->x * 9.81f;
+        pos.y += acc->y * 9.81f;
+
+        FIX_POS(pos.x, (VisibleRect::left().x + ballSize.width / 2.0), (VisibleRect::right().x - ballSize.width / 2.0));
+        FIX_POS(pos.y, (VisibleRect::bottom().y + ballSize.height / 2.0), (VisibleRect::top().y - ballSize.height / 2.0));
+        plane->setPosition(pos);
+    }
 }
 
 void GameScene::menuReturnCallBack(cocos2d::Ref* ref) {

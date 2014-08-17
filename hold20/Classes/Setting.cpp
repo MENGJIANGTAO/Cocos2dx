@@ -31,6 +31,14 @@ bool Setting::init() {
             Setting::soundCallback), openItem, closeItem, NULL);
     soundItem->setSelectedIndex(g_playSound ? 0 : 1);
 
+    str = "TouchControl";
+    MenuItemFont *touchItem = MenuItemFont::create(str.c_str(), NULL, NULL);
+    str = "MoveControl";
+    MenuItemFont *moveItem = MenuItemFont::create(str.c_str(), NULL, NULL);
+    MenuItemToggle *controlItem = MenuItemToggle::createWithTarget(this, menu_selector(Setting::controlCallback)
+            , touchItem, moveItem, NULL);
+    controlItem->setSelectedIndex(g_touchControl ? 0 : 1);
+
     str = "BulletNum";
     MenuItemFont *title2 = MenuItemFont::create(str.c_str(), NULL, NULL);
     title2->setEnabled(false);
@@ -46,11 +54,18 @@ bool Setting::init() {
     MenuItemFont::setFontName("Marker Felt");
     MenuItemFont::setFontSize(26);
 
+    str = "Control";
+    MenuItemFont *title3 = MenuItemFont::create(str.c_str(), NULL, NULL);
+    title3->setEnabled(false);
+    
     str = "back";
     MenuItem *back = MenuItemFont::create(str.c_str(), this, menu_selector(Setting::backCallback));
-    Menu *menu = Menu::create(title1, soundItem, title2, bulletNumItem, back, NULL);
+    
+    
+    Menu *menu = Menu::create(title1, soundItem, title2, bulletNumItem, title3, controlItem, back, NULL);
 
-    menu->alignItemsInColumns(2, 2, 1);
+    
+    menu->alignItemsInColumns(2, 2, 2, 1);
     addChild(menu);
 
     back->setScale(0.8f);
@@ -65,9 +80,8 @@ void Setting::backCallback(cocos2d::Ref* pSender) {
 
 void Setting::bulletNumCallback(cocos2d::Ref* pSender) {
 
-    g_bulletNumber+= 50;
-    if(g_bulletNumber>150)
-    {
+    g_bulletNumber += 50;
+    if (g_bulletNumber > 150) {
         g_bulletNumber = 50;
     }
 }
@@ -75,4 +89,8 @@ void Setting::bulletNumCallback(cocos2d::Ref* pSender) {
 void Setting::soundCallback(cocos2d::Ref* pSender) {
 
     g_playSound = !g_playSound;
+}
+
+void Setting::controlCallback(cocos2d::Ref* pSender) {
+    g_touchControl = !g_touchControl;
 }

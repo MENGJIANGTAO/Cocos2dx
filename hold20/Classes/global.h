@@ -6,5 +6,5 @@
 extern long g_gameTime;
 extern bool g_playSound;
 extern int g_bulletNumber;
-
+extern bool g_touchControl;
 #endif
