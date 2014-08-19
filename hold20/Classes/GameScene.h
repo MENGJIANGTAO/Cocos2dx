@@ -40,7 +40,7 @@ private:
     float speedX;
     float speedY;
     bool isFlying;
-
+    bool dead;
     std::vector<Sprite*> bullets;
 
     Sprite *explosion;

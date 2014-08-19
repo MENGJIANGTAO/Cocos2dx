@@ -30,6 +30,9 @@ bool GameScene::init() {
 
     Size size = Director::sharedDirector()->getWinSize();
 
+    dead = false;
+    g_score = 0;
+    
     joystick1 = Sprite::create("joystick1.png");
     joystick1->setOpacity(191);
     joystick1->setAnchorPoint(ccp(0, 0));
@@ -74,7 +77,6 @@ bool GameScene::init() {
 
 void GameScene::onEnter() {
     Layer::onEnter();
-
     if(!g_touchControl)
     {
         joystick->setVisible(g_touchControl);
@@ -263,6 +265,8 @@ void GameScene::checkBullet(float dt) {
         //        Rect bulletBox = bullet->boundingBox();
         //        sp1->boundingBox().containsPoint(touch->getStartLocation())
         if (planeBox.containsPoint(position)) {
+            this->unschedule(SEL_SCHEDULE(&GameScene::saveTime));
+            dead = true;
             this->removeChild(bullet, true);
             bitr = bullets.erase(bitr);
 
@@ -282,7 +286,7 @@ void GameScene::checkBullet(float dt) {
             this->addChild(explosion);
             explosion->setPosition(plane->getPosition());
             explosion->runAction(seq);
-
+              
             //sound
             if(g_playSound)
             {
@@ -315,10 +319,11 @@ void GameScene::flying(float dt) {
     }
 }
 
-void GameScene::saveTime(long dt)
-{
-    g_gameTime+=dt;
-    g_score++;
+void GameScene::saveTime(long dt) {
+    if (!dead) {
+        g_gameTime += dt;
+        g_score++;
+    }
 }
 
 void GameScene::explosionEndDid() {

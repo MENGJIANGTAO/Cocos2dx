@@ -3,6 +3,7 @@
 #include "Setting.h"
 #include "InputDialog.h"
 #include "RankScene.h"
+#include "global.h"
 USING_NS_CC;
 
 Scene* MenuScene::createScene() {
@@ -65,12 +66,13 @@ void MenuScene::menuNewCallback(cocos2d::Ref* pSender) {
     log("xmlpath:%s", temp->getXMLFilePath().c_str());
     const char* str = temp->getStringForKey("name").c_str();
     log("name:%s", str);
-    
     if (strcmp(str, "") == 0) {
         Scene *input = InputDialog::createScene();
         Director::sharedDirector()->replaceScene(CCTransitionFadeUp::create(1.5f, input));
     } else {
         log("Have name.");
+        std::string name(str);
+        g_name = name;
         Scene *gameScene = GameScene::createScene();
         Director::sharedDirector()->replaceScene(CCTransitionFadeUp::create(1.5f, gameScene));
     }
