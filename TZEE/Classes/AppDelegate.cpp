@@ -17,7 +17,9 @@
 //#include "fileUnit.h"
 //#include "particleTest.h"
 //#include "clickTest.h"
-#include "gestureRecognition.h"
+//#include "gestureRecognition.h"
+//#include "textAlign.h"
+#include "menuItem.h"
 
 USING_NS_CC;
 
@@ -63,7 +65,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	//auto scene = fileUnit::createScene();
 	//auto scene = particleTest::createScene();
 	//auto scene = clickTest::createScene();
-	auto scene = gestureRecognition::createScene();
+	//auto scene = gestureRecognition::createScene();
+	//auto scene = textAlign::createScene();
+	auto scene = menuItem::createScene();
     director->runWithScene(scene);
 
     return true;
