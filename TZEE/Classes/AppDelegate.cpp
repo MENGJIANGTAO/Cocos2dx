@@ -19,7 +19,8 @@
 //#include "clickTest.h"
 //#include "gestureRecognition.h"
 //#include "textAlign.h"
-#include "menuItem.h"
+//#include "menuItem.h"
+#include "schedulePopLayer.h"
 
 USING_NS_CC;
 
@@ -67,7 +68,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	//auto scene = clickTest::createScene();
 	//auto scene = gestureRecognition::createScene();
 	//auto scene = textAlign::createScene();
-	auto scene = menuItem::createScene();
+	//auto scene = menuItem::createScene();
+	auto scene = schedulePopLayer::createScene();
     director->runWithScene(scene);
 
     return true;

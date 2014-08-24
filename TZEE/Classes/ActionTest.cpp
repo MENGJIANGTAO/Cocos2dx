@@ -17,7 +17,7 @@ bool ActionTest::init()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	
 	Sprite *sprite1 = Sprite::create("person/poster_char_xiaohai2.png");
-	sprite1->setScale(0.5f);
+ 	sprite1->setScale(0.5f);
 	addChild(sprite1, 1, 1);
 	sprite1->setPosition(0, 0);
 	ActionInterval *action1 = MoveTo::create(3.0f, ccp(visibleSize.width, visibleSize.height));
