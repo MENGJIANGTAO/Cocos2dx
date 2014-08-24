@@ -38,14 +38,39 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto glview = director->getOpenGLView();
     if(!glview) {
         glview = GLView::create("My Game");
+		//glview->setFrameSize(800, 800);
         director->setOpenGLView(glview);
     }
+	//glview->setDesignResolutionSize(640, 320, kResolutionExactFit);
+	//glview->setDesignResolutionSize(640, 320, kResolutionNoBorder);
+	//glview->setDesignResolutionSize(640, 320, kResolutionFixedWidth);
+	//glview->setDesignResolutionSize(640, 320, kResolutionFixedHeight);
+	//glview->setDesignResolutionSize(640, 320, kResolutionUnKnown);
+	//glview->setDesignResolutionSize(640, 320, kResolutionShowAll);
+
+	//Size frameSize = glview->getFrameSize();
+
+	//Size winSize = Size(640,320);
+
+	//float widthRate = frameSize.width / winSize.width;
+	//float heightRate = frameSize.height / winSize.height;
+
+	//if (widthRate > heightRate)
+	//{
+	//	float height = winSize.height*heightRate / widthRate;
+	//	glview->setDesignResolutionSize(winSize.width, height, kResolutionShowAll);
+	//}
+	//else
+	//{
+	//	float width = winSize.width*widthRate / heightRate;
+	//	glview->setDesignResolutionSize(width, winSize.height, kResolutionShowAll);
+	//}
 
     // turn on display FPS
-    director->setDisplayStats(true);
+    //director->setDisplayStats(true);
 
     // set FPS. the default value is 1.0/60 if you don't call this
-    director->setAnimationInterval(1.0 / 60);
+    //director->setAnimationInterval(1.0 / 60);
 
     // create a scene. it's an autorelease object
     //auto scene = HelloWorld::createScene();
