@@ -3,7 +3,7 @@
 //#include "TestFont.h"
 //#include "TestSprite9.h"
 //#include "TestDataStruct.h"
-//#include "ActionTest.h"
+#include "ActionTest.h"
 //#include "animation.h"
 //#include "easeAction.h"
 //#include "skillCd.h"
@@ -77,7 +77,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	//auto scene = TestFont::createScene();
 	//auto scene = TestSprite9::createScene();
 	//auto scene = TestDataStruct::createScene();
-	//auto scene = ActionTest::createScene();
+	auto scene = ActionTest::createScene();
 	//auto scene = animation::createScene();
 	//auto scene = easeAction::createScene();
 	//auto scene = skillCd::createScene();
@@ -94,7 +94,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	//auto scene = gestureRecognition::createScene();
 	//auto scene = textAlign::createScene();
 	//auto scene = menuItem::createScene();
-	auto scene = schedulePopLayer::createScene();
+	//auto scene = schedulePopLayer::createScene();
     director->runWithScene(scene);
 
     return true;
