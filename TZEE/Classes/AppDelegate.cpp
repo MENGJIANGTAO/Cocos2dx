@@ -8,7 +8,6 @@
 //#include "easeAction.h"
 //#include "skillCd.h"
 //#include "changeScen.h"
-//#include "LoadingScene.h"
 //#include "myfont.h"
 //#include "screenShoot.h"
 //#include "soundPlay.h"
@@ -21,7 +20,8 @@
 //#include "textAlign.h"
 //#include "menuItem.h"
 //#include "schedulePopLayer.h"
-#include "progressTest.h"
+//#include "progressTest.h"
+#include "loadBar.h"
 
 USING_NS_CC;
 
@@ -82,7 +82,6 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	//auto scene = easeAction::createScene();
 	//auto scene = skillCd::createScene();
 	//auto scene = changeScen::createScene();
-	//auto scene = LoadScene::createScene();
 	//auto scene = myfont::createScene();
 	//auto scene = screenShoot::createScene();
 	//auto scene = soundPlay::createScene();
@@ -95,7 +94,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	//auto scene = textAlign::createScene();
 	//auto scene = menuItem::createScene();
 	//auto scene = schedulePopLayer::createScene();
-	auto scene = progressTest::createScene();
+	//auto scene = progressTest::createScene();
+	auto scene = loadBar::createScene();
 	director->runWithScene(scene);
 
     return true;
