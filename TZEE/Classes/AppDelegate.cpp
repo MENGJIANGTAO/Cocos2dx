@@ -21,7 +21,8 @@
 //#include "menuItem.h"
 //#include "schedulePopLayer.h"
 //#include "progressTest.h"
-#include "loadBar.h"
+//#include "loadBar.h"
+#include "controlButton.h";
 
 USING_NS_CC;
 
@@ -95,7 +96,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	//auto scene = menuItem::createScene();
 	//auto scene = schedulePopLayer::createScene();
 	//auto scene = progressTest::createScene();
-	auto scene = loadBar::createScene();
+	//auto scene = loadBar::createScene();
+	auto scene = controlButton::createScene();
 	director->runWithScene(scene);
 
     return true;
