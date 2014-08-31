@@ -27,7 +27,7 @@ bool controlButton::init()
 	LabelTTF *titleButton = LabelTTF::create("Touch me", "Marker Felt", 30);
 
 	ControlButton *button = ControlButton::create(titleButton, backgroundButton);
-	button->setPosition(ccp(size.width / 2, size.height / 2));
+	button->setPosition(ccp(size.width / 2, size.height / 2) );
 	button->setPreferredSize(Size(200,100));
 	button->setBackgroundSpriteForState(backgroundHighlightedButton, Control::State::HIGH_LIGHTED);
 	addChild(button);
